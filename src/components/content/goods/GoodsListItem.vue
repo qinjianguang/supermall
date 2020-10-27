@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodItem.show.img" alt="">
+  <div class="goods-item" @click="itemClick">
+    <img :src="goodItem.show.img" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>
         {{goodItem.title}}
@@ -20,6 +20,22 @@
         data() {
           return {}
         }
+      }
+    },
+    methods : {
+      imageLoad() {
+        //console.log('imageLoad');
+        this.$bus.$emit('itemImageLoad');
+      },
+      itemClick () {
+        console.log(this.goodItem.iid);
+        //this.$router.push('/detail/' + this.goodItem.iid)
+        this.$router.push({
+          path : '/detail',
+          params  : {
+            iid : this.goodItem.iid
+          }
+        })
       }
     }
   }
