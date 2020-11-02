@@ -28,14 +28,14 @@
         this.$bus.$emit('itemImageLoad');
       },
       itemClick () {
-        console.log(this.goodItem.iid);
-        //this.$router.push('/detail/' + this.goodItem.iid)
-        this.$router.push({
-          path : '/detail',
+        //console.log(this.goodItem.iid);
+        this.$router.push('/detail/' + this.goodItem.iid)
+       /* this.$router.push({
+          path : '/detail/' + this.goodItem.iid,
           params  : {
             iid : this.goodItem.iid
           }
-        })
+        })*/
       }
     }
   }
